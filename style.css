@@ -376,7 +376,8 @@ h1 {
 .buttons-section {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    justify-content: center;
+/*     margin-top: 1rem; */
 }
 
 .contact-btn {
@@ -403,8 +404,33 @@ h1 {
 .contact-btn:hover {
   transform: scale(1.15);
   background-color: #1841d1;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  cursor: pointer;
 
 }
+
+.icon-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.icon-btn:hover {
+  transform: scale(1.15);
+  background-color: #ffffff;
+}
+
 
 .footer {
     background-color: #2D3748; 
