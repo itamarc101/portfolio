@@ -376,8 +376,9 @@ h1 {
 
 .buttons-section {
     display: flex;
-    gap: 1rem;
+    /* align-items: center; */
     justify-content: center;
+    gap: 1rem;
     margin-top: 1rem;
 }
 
@@ -431,7 +432,6 @@ h1 {
   transform: scale(1.15);
   background-color: #ffffff;
 }
-
 
 .footer {
     background-color: #2D3748; 
