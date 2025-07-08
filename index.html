@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itamar Cohen Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header class="navbar">
@@ -39,7 +41,7 @@
             </div>
 
             <div class="top-right">
-                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/227/847/small_2x/programmer-computer-expert-black-linear-icon-vector.jpg" alt="Itamar Cohen" class="main-image" />
+                <img src="https://static.vecteezy.com/system/resources/previews/003/715/527/non_2x/picture-profile-icon-male-icon-human-or-people-sign-and-symbol-vector.jpg" alt="Itamar Cohen" class="main-image" />
         </div>
     </section>
 
@@ -141,7 +143,7 @@
             <h1>Get In Touch</h1>
 
             <div class="get-in-touch-content">
-                <div class="get-in-touch-left">
+                <form class="get-in-touch-left" id="contact-form">
 
                     <div class="info">
                         <label for="first-name">Name</label>
@@ -159,11 +161,16 @@
                     </div>
 
                     <div class="button">
-                        <a href="mailto:itamarc101@gmail.com" class="btn btn-msg">Send Message</a>
+                        <!-- <a href="mailto:itamarc101@gmail.com" class="btn btn-msg">Send Message</a> -->
+                        <button type="submit" class="btn btn-msg">Send Message</button>
+                        <div id="success-msg" class="success-msg hidden">
+                            Your message was sent successfully!
+                        </div>
+
                     </div>
 
 
-                </div>
+                </form>
 
                 <div class="get-in-touch-right">
                     <div class="contact-section">
@@ -204,6 +211,40 @@
         <p class="text-footer">&copy; Itamar Cohen. All rights reserved.</p>
     </footer>
 
+
+    <script type="module">
+        emailjs.init("_Q7amS-u5IYdo0Sw0"); 
+
+        document.querySelector(".btn-msg").addEventListener("click", function (event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name")?.value || "";
+        const email = document.getElementById("email")?.value || "";
+        const message = document.getElementById("message")?.value || "";
+
+        if (!name || !email || !message) {
+        alert("Please fill out all fields.");
+        return;
+        }
+
+        emailjs.send("service_8wba09e", "portfolio_mail", {
+        name: name,
+        email: email,
+        message: message
+        }).then(() => {
+        document.getElementById("success-msg").classList.remove("hidden");
+
+        setTimeout(() => {
+        document.getElementById("success-msg").classList.add("hidden");
+        }, 5000);
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+        }, (error) => {
+        alert("Failed to send message: " + error.text);
+        });
+    });
+    </script>
 
 
             
