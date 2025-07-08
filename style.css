@@ -344,6 +344,17 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
+.success-msg {
+    margin-top: 1rem;
+    color: #16a34a; /* green-600 */
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Use this to hide the element initially */
+.hidden {
+    display: none;
+}
 
 .get-in-touch right {
     flex: 1;
