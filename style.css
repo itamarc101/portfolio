@@ -282,6 +282,7 @@ h1 {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
   /* padding: 1rem; */
 }
 
@@ -305,6 +306,8 @@ h1 {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .project-description {
@@ -323,6 +326,7 @@ h1 {
     font-size: 0.9rem;
     text-decoration: none;
     transition: background-color 0.3 ease;
+    margin-top: auto;
 }
 
 .project-button:hover {
